@@ -137,18 +137,17 @@ void Show2dArray(int[,] array)
 
 double[] AverageSumOfColumn(int[,] array)
 {
-    double[] arrayOfAverageSum = new double[array.GetLength(0)];
+    double[] arrayOfAverageSum = new double[array.GetLength(1)];
     
     for(int j = 0; j < array.GetLength(1); j++)
     {
-        int sum = 0;
+        double sum = 0;
+
         for(int i = 0; i < array.GetLength(0); i++)
-        {    
+           
             sum += array[i,j];
-        }
         
-        arrayOfAverageSum[j] = sum / array.GetLength(1);
-        
+        arrayOfAverageSum[j] = Math.Round(sum / array.GetLength(0), 2);
     }
 
     return arrayOfAverageSum;
@@ -157,9 +156,8 @@ double[] AverageSumOfColumn(int[,] array)
 void ShowDoubleArray(double[] array)
 {
     for(int i = 0; i < array.Length; i++)
-    {
+    
        Console.Write(array[i] + " ");
-    }
     
     Console.WriteLine();	
 }
